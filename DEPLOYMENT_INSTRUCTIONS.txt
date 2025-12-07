@@ -1,0 +1,50 @@
+HOW TO PUBLISH YOUR WEBSITE
+
+This is a step-by-step guide to deploy your asset management website to the web.
+
+PREREQUISITES:
+- Your complete website is in a single HTML file (index35.html)
+- No additional files or dependencies are needed
+- All CSS and JavaScript are embedded in the HTML file
+
+DEPLOYMENT OPTIONS:
+
+OPTION 1: GitHub Pages (Free)
+1. Create a GitHub account at github.com if you don't have one
+2. Create a new repository:
+   - Click "+" next to your profile picture
+   - Select "New repository"
+   - Name it anything (e.g., "my-asset-manager")
+   - Don't initialize with README
+3. Rename your index35.html file to index.html
+4. Upload your index.html file to the repository:
+   - Click "Add file" then "Upload files"
+   - Drag and drop your index.html file
+   - Commit the file
+5. Enable GitHub Pages:
+   - Go to repository "Settings"
+   - Scroll down to "Pages" section
+   - Under "Source", select "Deploy from a branch"
+   - Select "main" branch and "/ (root)" folder
+   - Click "Save"
+6. Your site will be live at: https://[your-username].github.io/[repository-name]
+
+OPTION 2: Netlify (Free)
+1. Go to netlify.com and sign up/sign in
+2. Rename your index35.html file to index.html
+3. Drag and drop your index.html file onto the upload area on Netlify homepage
+4. Netlify will automatically deploy your site
+5. Your site will get a random URL which you can customize in site settings
+
+OPTION 3: Vercel (Free)
+1. Go to vercel.com and sign up/sign in
+2. Rename your index35.html file to index.html
+3. Click "New Project"
+4. Drag and drop your index.html file
+5. Vercel will automatically deploy your site
+6. Your site will get a vercel.app URL which you can customize
+
+IMPORTANT NOTES:
+- Your data is stored in the browser's localStorage, so it will be specific to each browser/device
+- All functionality will work immediately after deployment
+- No server-side components are needed

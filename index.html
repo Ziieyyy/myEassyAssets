@@ -1,0 +1,2076 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">myEassyAssets.my</title>
+    <style>
+        /* Tetapan Warna Tema BARU: PURPLE dan LIGHT GRAY */
+        :root {
+            --primary-color: #6A5ACD; /* Royal Purple */
+            --secondary-color: #483D8B; /* Dark Purple */
+            --light-bg: #f5f5f5; /* Light Gray/Off-White untuk elemen */
+            --text-color: #000; /* Hitam untuk semua teks utama */
+            --danger-color: #dc3545; /* Kekalkan Merah untuk bahaya/padam */
+            --body-bg: #ededed; /* Background Body Kelabu Cerah */
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--body-bg); /* Kelabu Cerah */
+            color: var(--text-color); /* Hitam */
+        }
+        .container {
+            width: 95%;
+            max-width: 1400px;
+            margin: 20px auto;
+            padding: 20px; /* Padding ini memberikan 'ruang tepi just nice' */
+            background-color: #ffffff; /* Putih */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+        }
+        h1, h2 {
+            color: var(--secondary-color); /* Dark Purple */
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        h3 {
+            color: var(--text-color); /* Hitam */
+            margin-top: 20px;
+        }
+        /* Header dan Menu */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: var(--primary-color); /* Royal Purple */
+            color: white; /* Kekalkan Putih untuk teks header */
+            border-radius: 10px 10px 0 0;
+            margin: -20px -20px 20px -20px;
+        }
+        .header h1 {
+            color: white; /* Kekalkan Putih untuk tajuk header */
+            border-bottom: none;
+            margin: 0;
+        }
+        .lang-switcher button {
+            background: none;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            cursor: pointer;
+            opacity: 0.8;
+            border-radius: 5px;
+        }
+        .lang-switcher button.active {
+            opacity: 1;
+            background-color: rgba(255, 255, 255, 0.3);
+            font-weight: bold;
+        }
+
+        /* Navigasi / Menu Utama */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 20px 0;
+        }
+        .menu-item {
+            background-color: var(--light-bg); /* Light Gray */
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .menu-item:hover {
+            background-color: #e0e0e0; /* Hover Light Gray yang sedikit gelap */
+            transform: translateY(-3px);
+            box-shadow: 0 6px 10px rgba(72, 61, 139, 0.2);
+        }
+        .menu-item h2 {
+            margin: 0;
+            font-size: 1.5em;
+            color: var(--secondary-color); /* Dark Purple */
+            border-bottom: none;
+        }
+        .logout-btn {
+            background-color: var(--danger-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+        .logout-btn:hover {
+            background-color: #c82333;
+        }
+
+        /* Gaya untuk Section yang ingin di-center (Kekal untuk Home & Title) */
+        .centered-section {
+            text-align: center;
+        }
+        
+        /* BARU: Gaya untuk Section yang ingin di-left-align (untuk Butang Kembali) */
+        .left-aligned-section {
+            text-align: left; /* Penjajaran ke kiri */
+            /* Padding dari .container sudah memberikan ruang just nice. */
+        }
+
+        /* Gaya Butang Kembali */
+        .btn-back-home {
+            background-color: var(--primary-color); /* Royal Purple */
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: inline-block;
+            margin: 15px 0;
+        }
+        .btn-back-home:hover {
+            background-color: #5d4aa0;
+        }
+
+        /* Borang */
+        .form-section, .login-box, .pass-box {
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            background-color: #ffffff; /* Putih */
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+            color: var(--text-color); /* Hitam */
+        }
+        input[type="text"], input[type="number"], input[type="date"], input[type="password"], select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            color: var(--text-color); /* Input teks juga Hitam */
+            background-color: white;
+        }
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        /* Penampilan placeholder */
+        input::placeholder {
+            color: #999;
+            font-style: italic;
+        }
+        .input-group {
+            position: relative;
+        }
+        
+        /* Style untuk ikon password (Mata/X) */
+        .toggle-password {
+            position: absolute;
+            right: 5px;
+            top: 50%; 
+            transform: translateY(-50%);
+            cursor: pointer;
+            font-size: 1.1em; 
+            font-weight: normal;
+            text-decoration: none;
+            color: var(--secondary-color); /* Dark Purple */
+        }
+
+        /* Butang Utama (Submit/Action) */
+        button[type="submit"], .btn-action, .btn-primary {
+            background-color: var(--secondary-color); /* Dark Purple */
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-right: 10px;
+        }
+        button[type="submit"]:hover, .btn-action:hover, .btn-primary:hover {
+            background-color: #3f3579;
+        }
+        /* Butang Sekunder (Batal) */
+        .btn-secondary {
+            background-color: var(--primary-color); /* Royal Purple */
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn-secondary:hover {
+            background-color: #5d4aa0;
+        }
+        .error-msg {
+            color: var(--danger-color);
+            margin-top: -10px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        /* Jadual */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 0.9em;
+            table-layout: auto;
+            color: var(--text-color); /* Teks jadual Hitam */
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: var(--primary-color); /* Royal Purple */
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        tr:nth-child(even) {
+            background-color: var(--light-bg); /* Light Gray untuk selang-seli */
+        }
+        td input[type="date"], td input[type="text"], td input[type="number"] {
+            padding: 5px;
+            margin: 0;
+            width: 95%;
+            border: 1px solid #ccc;
+            background-color: white;
+        }
+
+        /* Gaya untuk butang dalam jadual Aset */
+        table td {
+            white-space: normal;
+        }
+        #assetTable td:last-child {
+            white-space: nowrap;
+        }
+        /* Butang dalam Jadual */
+        .btn-edit {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 0.85em;
+            background-color: #6A5ACD; /* Royal Purple */
+            color: white; 
+            display: inline-block;
+            margin-right: 10px;
+            min-width: 70px;
+        }
+        .btn-edit:hover {
+            background-color: #5d4aa0;
+        }
+        .btn-delete {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 0.85em;
+            background-color: var(--danger-color);
+            color: white;
+            display: inline-block;
+            min-width: 70px;
+        }
+        .btn-delete:hover {
+            background-color: #c82333;
+        }
+        /* ----------------------------------------------------------------------- */
+
+        /* BARU: Gaya untuk menyelaraskan butang Edit/Delete di dalam jadual Susut Nilai */
+        .action-cell {
+            display: flex;
+            gap: 5px;
+            justify-content: flex-start;
+        }
+        .action-cell button {
+            min-width: 60px;
+            padding: 5px 8px;
+            font-size: 0.8em;
+        }
+        .btn-susut-edit {
+            background-color: var(--primary-color); /* Royal Purple */
+            color: white;
+        }
+        .btn-susut-delete {
+            background-color: var(--danger-color);
+            color: white;
+        }
+        /* ----------------------------------------------------------------------- */
+
+        /* Halaman Jenis Aset (B) */
+        #assetTypeList {
+            list-style: none;
+            padding: 0;
+            max-width: 500px;
+            margin: 20px auto;
+        }
+        #assetTypeList li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            border-bottom: 1px dashed #ccc;
+            background-color: white;
+        }
+        #assetTypeList li:nth-child(even) {
+            background-color: var(--light-bg); /* Light Gray */
+        }
+        #assetTypeList li:last-child {
+            border-bottom: none;
+        }
+        .asset-name-link {
+            font-weight: bold;
+            color: var(--secondary-color); /* Dark Purple */
+            cursor: pointer;
+            transition: color 0.3s;
+            flex-grow: 1;
+        }
+        .asset-name-link:hover {
+            color: #3f3579;
+            text-decoration: underline;
+        }
+        .asset-actions button {
+            display: inline-block;
+        }
+
+        /* Softcopy */
+        #imagePreview {
+            max-width: 150px;
+            max-height: 150px;
+            margin-top: 10px;
+            border: 1px solid #ddd;
+            display: none;
+            border-radius: 4px;
+        }
+        .softcopy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        /* Kotak Carian */
+        .search-box {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            gap: 10px;
+        }
+        .search-box label {
+            margin: 0;
+            white-space: nowrap;
+            color: var(--text-color); /* Hitam */
+        }
+        .search-box input {
+            flex-grow: 1;
+            margin: 0;
+            padding: 8px;
+        }
+        /* Warna Teks pada elemen P */
+        p {
+            color: var(--text-color);
+        }
+
+        /* Media Query untuk Mobile */
+        @media (max-width: 768px) {
+            .container {
+                width: 100%;
+                margin: 0;
+                padding: 10px;
+                box-shadow: none;
+                border-radius: 0;
+            }
+            .header {
+                padding: 10px;
+                margin: -10px -10px 10px -10px;
+            }
+            .header h1 {
+                font-size: 1.2em;
+            }
+            .menu-item h2 {
+                font-size: 1.2em;
+            }
+            table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+            .softcopy-grid {
+                grid-template-columns: 1fr;
+            }
+            .search-box {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .search-box label {
+                margin-top: 10px;
+            }
+            .search-box input {
+                width: 100%;
+            }
+            /* Mobile: Kekalkan penjajaran butang kembali ke kiri */
+            .left-aligned-section {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1 id="headerTitle">myEassyAssets.my</h1>
+            <div class="lang-switcher">
+                <button id="langBM" onclick="changeLanguage('bm')">BM</button>
+                <button id="langEN" onclick="changeLanguage('en')">EN</button>
+            </div>
+        </div>
+
+        <div id="loginPage" style="display: block;">
+            <div class="login-box" style="max-width: 400px; margin: 50px auto; text-align: center;">
+                <h2 id="loginTitle">myEassyAssets.my</h2>
+                <form onsubmit="event.preventDefault(); processLogin();">
+                    <label for="passwordInput" id="loginPassLabel">Password</label>
+                    <div class="input-group">
+                        <input type="password" id="passwordInput" required placeholder="Enter Password">
+                        <span class="toggle-password" id="loginToggle" onclick="togglePassword('passwordInput', 'loginToggle')">X</span>
+                    </div>
+                    <p id="loginError" class="error-msg"></p>
+                    <button type="submit" id="loginButton" class="btn-primary">Login</button>
+                    <button id="loginChangePassBtn" class="btn-secondary" onclick="openPage('changePasswordPage')">Forgot Password</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="changePasswordPage" style="display: none;">
+            <h2 id="changePassTitle" class="centered-section">Change Password</h2>
+            <div class="pass-box" style="max-width: 500px; margin: 20px auto;">
+                <p style="font-size: 0.9em; color: #5a6268;" id="changePassHelpText">If you **forgot** your password, you can enter anything for "Old Password".</p>
+                <form onsubmit="event.preventDefault(); saveNewPassword();">
+                    <label for="oldPass" id="oldPassLabel">Old Password</label>
+                    <div class="input-group">
+                        <input type="password" id="oldPass" required>
+                        <span class="toggle-password" id="oldPassToggle" onclick="togglePassword('oldPass', 'oldPassToggle')">X</span>
+                    </div>
+
+                    <label for="newPass" id="newPassLabel">New Password</label>
+                    <div class="input-group">
+                        <input type="password" id="newPass" required>
+                        <span class="toggle-password" id="newPassToggle" onclick="togglePassword('newPass', 'newPassToggle')">X</span>
+                    </div>
+
+                    <label for="confirmPass" id="confirmPassLabel">Confirm New Password</label>
+                    <div class="input-group">
+                        <input type="password" id="confirmPass" required>
+                        <span class="toggle-password" id="confirmPassToggle" onclick="togglePassword('confirmPass', 'confirmPassToggle')">X</span>
+                    </div>
+
+                    <p id="changeError" class="error-msg"></p>
+                    <button type="submit" id="savePassButton" class="btn-primary">Save Password</button>
+                    <button type="button" class="btn-secondary" onclick="openPage('loginPage')" id="cancelPassButton">Cancel</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="homePage" style="display: none;" class="centered-section">
+            <h2 id="homeTitle">Smart assets. Smart management. Smart business.</h2>
+            <div class="menu-grid">
+                <div class="menu-item" onclick="openPage('mainPage')">
+                    <h2 id="menuA">A) Asset Registration</h2>
+                    <p id="descA">Record new asset information and update existing assets.</p>
+                </div>
+                <div class="menu-item" onclick="openPage('assetTypePage')">
+                    <h2 id="menuB">B) Depreciation Calculation</h2>
+                    <p id="descB">Select asset type and calculate annual depreciation.</p>
+                </div>
+                <div class="menu-item" onclick="openPage('pageSoftcopy')">
+                    <h2 id="menuC">C) Softcopy Documents</h2>
+                    <p id="descC">Upload or store links to asset documents and images.</p>
+                </div>
+            </div>
+            <button class="logout-btn" id="menuLogout" onclick="logout()">Logout</button>
+        </div>
+
+        <div id="mainPage" style="display: none;">
+            <h2 id="assetPageTitle" class="centered-section">Asset Registration System</h2>
+            <div class="left-aligned-section"> <button type="button" class="btn-back-home" onclick="openPage('homePage')" id="assetBackHomeBtn">&larr; Back to Main Menu</button>
+            </div>
+
+            <div class="form-section">
+                <h3 id="assetRegFormTitle">Asset Registration Form</h3>
+                <form id="assetForm">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                        <div>
+                            <label for="jenisAsetSelect" id="labelJenisAset">Asset Type</label>
+                            <select id="jenisAsetSelect" onchange="checkNewAssetType(this.value)" required></select>
+                            <input type="text" id="jenisAsetInput" placeholder="Enter New Asset Type" style="display:none;">
+                        </div>
+                        <div>
+                            <label for="tarikhBeli" id="labelTarikhBeli">Purchase Date</label>
+                            <input type="date" id="tarikhBeli" required placeholder="mm/dd/yyyy">
+                        </div>
+                        <div>
+                            <label for="tarikhLupus" id="labelTarikhLupus">Disposal Date</label>
+                            <input type="date" id="tarikhLupus" placeholder="mm/dd/yyyy">
+                        </div>
+                        <div>
+                            <label for="rujukan" id="labelRujukan">Ref. No.</label>
+                            <input type="text" id="rujukan" placeholder="Example: REF001">
+                        </div>
+                        <div>
+                            <label for="model" id="labelModel">Model</label>
+                            <input type="text" id="model" placeholder="Enter asset model name">
+                        </div>
+                        <div>
+                            <label for="jangkaHayat" id="labelHayat">Life Span (years)</label>
+                            <input type="number" id="jangkaHayat" min="1" step="0.5" required>
+                        </div>
+                        <div>
+                            <label for="kadarSusut" id="labelKadarSusut">Depreciation Rate (%)</label>
+                            <input type="number" id="kadarSusut" min="0" max="100" step="0.1" required>
+                        </div>
+                        <div>
+                            <label for="unit" id="labelUnit">Unit</label>
+                            <input type="number" id="unit" min="1" required>
+                        </div>
+                        <div>
+                            <label for="harga" id="labelHarga">Unit Price (RM)</label>
+                            <input type="number" id="harga" min="0.01" step="0.01" required>
+                        </div>
+                        <div>
+                            <label for="lokasi" id="labelLokasi">Location</label>
+                            <input type="text" id="lokasi" placeholder="Example: Main Office / Store A">
+                        </div>
+                        <div>
+                            <label for="kemaskiniTarikh" id="labelKemaskiniTarikh">Update Date</label>
+                            <input type="date" id="kemaskiniTarikh" required placeholder="mm/dd/yyyy">
+                        </div>
+                        <div>
+                            <label for="kemaskiniOleh" id="labelKemaskiniOleh">Updated By</label>
+                            <input type="text" id="kemaskiniOleh" required placeholder="Your name">
+                        </div>
+                    </div>
+                    <button type="submit" id="submitAssetButton" class="btn-action" style="margin-top: 20px;">Add / Update</button>
+                </form>
+            </div>
+
+            <h3 id="assetRecordTitle">Asset Record</h3>
+            <div class="search-box">
+                <label for="assetSearchInput" id="labelAssetSearch">Search Asset:</label>
+                <input type="text" id="assetSearchInput" onkeyup="searchAssets()" placeholder="Search Asset Type, Reference, Model or Location...">
+            </div>
+
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th id="thJenisAset">Asset Type</th>
+                            <th id="thTarikhBeli">Purchase Date</th>
+                            <th id="thTarikhLupus">Disposal Date</th>
+                            <th id="thRujukan">Ref. No.</th>
+                            <th id="thModel">Model</th>
+                            <th id="thHayat">Life Span</th>
+                            <th id="thUnit">Unit</th>
+                            <th id="thHarga">Price</th>
+                            <th id="thJumlah">Total</th>
+                            <th id="thKadarSusut">Depreciation Rate (%)</th>
+                            <th id="thLokasi">Location</th>
+                            <th id="thTKemaskini">Update Date</th>
+                            <th id="thOleh">Updated By</th>
+                            <th id="thTindakanAset">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="assetTable">
+                        </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="assetTypePage" style="display: none;">
+            <h2 id="assetTypeTitle" class="centered-section">Select Asset Type</h2>
+            <div class="centered-section">
+                <button type="button" class="btn-back-home" onclick="openPage('homePage')" id="assetTypeBackHomeBtn">&larr; Back to Main Menu</button>
+            </div>
+
+            <p id="assetTypeHelp" style="margin-top: 15px; text-align: center;">Click asset name to view depreciation record.</p>
+
+            <div class="centered-section">
+                 <button class="btn-primary" id="addAssetTypeBtn" onclick="promptAddAssetType()">Add Asset Type</button>
+            </div>
+           
+            <ul id="assetTypeList">
+                </ul>
+        </div>
+
+        <div id="pageSusutNilai" style="display: none;">
+            <h2 id="susutPageTitle" class="centered-section">Depreciation Calculation</h2>
+            <h3 id="susutPageSubTitle" data-type="" style="margin-top: 10px; text-align: center;">Asset: [Asset Name]</h3>
+            <div class="centered-section">
+                <button type="button" class="btn-back-home" onclick="openPage('assetTypePage')" id="susutBackHomeBtn">&larr; Back to Asset Type</button>
+            </div>
+
+            <div class="centered-section">
+                <button class="btn-primary" id="addSusutRowBtn" onclick="addSusutRow()" style="margin-top: 20px;">Add Row</button>
+            </div>
+
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th id="thBil">No</th>
+                            <th id="thSusutTarikh">Date</th>
+                            <th id="thSusutAset">Asset</th>
+                            <th id="thSusutBakiAwalKos">Beg. Balance Cost</th>
+                            <th id="thSusutTambahan">Addition</th>
+                            <th id="thSusutLupus">Disposal</th>
+                            <th id="thSusutBakiAkhirKos">End Balance Cost</th>
+                            <th id="thSusutKadar">Dep. Rate (%)</th>
+                            <th id="thSusutBakiAwalSusut">Beg. Balance Dep.</th>
+                            <th id="thSusutTambahanSusut">Add. Dep.</th>
+                            <th id="thSusutLupusSusut">Disp. Dep.</th>
+                            <th id="thSusutBakiAkhirSusut">End Balance Dep.</th>
+                            <th id="thSusutNilaiBuku">Net Book Value</th>
+                            <th id="thSusutTindakan">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="susutTableBody">
+                        </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="pageSoftcopy" style="display: none;">
+            <h2 id="softcopyPageTitle" class="centered-section">Softcopy Documents</h2>
+            <div class="left-aligned-section"> <button type="button" class="btn-back-home" onclick="openPage('homePage')" id="softcopyBackHomeBtn">&larr; Back to Main Menu</button>
+            </div>
+
+            <div class="form-section">
+                <h3 id="softcopyFormTitle">Softcopy Add / Update Form</h3>
+                <form id="softcopyForm">
+                    <div class="softcopy-grid">
+                        <div>
+                            <label for="softcopyAssetType" id="labelSoftcopyAssetType">Asset Type</label>
+                            <select id="softcopyAssetType" required></select>
+                        </div>
+                        <div>
+                            <label for="softcopyDocName" id="labelSoftcopyDocName">Document Name</label>
+                            <input type="text" id="softcopyDocName" required placeholder="Example: Computer Invoice B">
+                        </div>
+                        <div>
+                            <label for="softcopyURL" id="labelSoftcopyURL">Document Link/URL (for PDF/External File)</label>
+                            <input type="text" id="softcopyURL" placeholder="http://or_https://your_document_link">
+                        </div>
+                        <div>
+                            <label for="softcopyFile" id="labelSoftcopyFile">Or Upload Asset Image/Photo (Small File)</label>
+                            <input type="file" id="softcopyFile" accept="image/png, image/jpeg, image/jpg">
+                            <p id="fileWarning" style="font-size: 0.8em; color: var(--secondary-color); margin-top: -10px;">**IMPORTANT:** Upload small size images only (&lt;500KB). Large images may cause storage failure.</p>
+                            <img id="imagePreview" alt="Image Preview" style="display: none; max-width: 100px; max-height: 100px; border: 1px solid #ccc; margin-top: 5px;">
+                        </div>
+                    </div>
+                    <button type="submit" id="submitSoftcopyButton" class="btn-action" style="margin-top: 20px;">Add Document</button>
+                </form>
+            </div>
+
+            <h3 id="softcopyListTitle">Softcopy Document List</h3>
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th id="thSoftcopyAssetType">Asset Type</th>
+                            <th id="thSoftcopyDocName">Document Name</th>
+                            <th id="thSoftcopyImage">Image</th>
+                            <th id="thSoftcopyURL">Link (If Any)</th>
+                            <th id="thSoftcopyTindakan">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="softcopyTable">
+                        </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Objek Teks untuk Terjemahan
+        const languages = {
+            bm: {
+                title: "myEassyAssets.my",
+                loginTitle: "myEassyAssets.my",
+                homeTitle: "Smart assets. Smart management. Smart business.",
+
+                // Header
+                changePassHelpText: "Jika anda **terlupa** password, anda boleh masukkan apa sahaja untuk \"Password Lama\".",
+
+                // Login & Password
+                loginPassLabel: "Password",
+                loginPlaceholder: "Masukkan Password",
+                loginButton: "Masuk",
+                loginChangePassBtn: "Lupa Password",
+                changePassTitle: "Tukar Password",
+                oldPassLabel: "Password Lama",
+                newPassLabel: "Password Baru",
+                confirmPassLabel: "Sahkan Password Baru",
+                savePassButton: "Simpan Password",
+                cancelButton: "Batal", // BARU
+
+                // Menu
+                menuA: "A) Daftar Aset",
+                descA: "Rekod maklumat aset baru dan kemaskini aset sedia ada.", // BARU
+                menuB: "B) Pengiraan Susut Nilai",
+                descB: "Pilih jenis aset dan kira susut nilai tahunan.", // BARU
+                menuC: "C) Dokumen Softcopy",
+                descC: "Muat naik atau simpan pautan dokumen dan imej aset.", // BARU
+                menuLogout: "Log Keluar",
+
+                // Halaman Jenis Aset
+                assetTypeTitle: "Pilih Jenis Aset",
+                assetTypeBackHomeBtn: "Kembali ke Menu Utama",
+                assetTypeHelp: "Klik nama aset untuk lihat rekod susut nilai.",
+                addAssetTypeBtn: "Tambah Jenis Aset",
+                promptAssetTypeMsg: "Masukkan nama Jenis Aset baru (contoh: Peralatan Pejabat):",
+                promptAssetTypeSuccess: "Jenis Aset berjaya ditambah!",
+                editBtn: "Edit",
+                deleteBtn: "Padam",
+                confirmEdit: "Tukar nama aset dari '{oldName}' kepada:",
+                confirmDelete: "Adakah anda pasti mahu memadam Jenis Aset '{assetType}'? Semua rekod susut nilainya AKAN dipadam.",
+
+
+                // Halaman Aset
+                assetPageTitle: "Sistem Daftar Aset",
+                assetBackHomeBtn: "Kembali ke Menu Utama",
+                assetRegFormTitle: "Borang Daftar Aset",
+                assetRecordTitle: "Rekod Aset",
+                submitAssetButton: "Tambah / Kemaskini",
+                updateAssetButton: "Kemaskini Aset",
+                labelAssetSearch: "Cari Aset:",
+
+                // Label Borang Aset
+                labelJenisAset: "Jenis Aset", thJenisAset: "Jenis Aset",
+                dropdownSelectAsset: "-- Pilih Jenis Aset --", // BARU
+                dropdownAddNewAsset: "Tambah Jenis Aset Baru...", // BARU
+                labelTarikhBeli: "Tarikh Beli", thTarikhBeli: "Tarikh Beli",
+                labelTarikhLupus: "Tarikh Lupus", thTarikhLupus: "Tarikh Lupus",
+                labelRujukan: "No. Rujukan", thRujukan: "No. Rujukan",
+                labelModel: "Model", thModel: "Model",
+                labelHayat: "Jangka Hayat (tahun)", thHayat: "Jangka Hayat",
+                labelKadarSusut: "Kadar Susut (%)", thKadarSusut: "Kadar Susut (%)",
+                labelUnit: "Unit", thUnit: "Unit",
+                labelHarga: "Harga Seunit (RM)", thHarga: "Harga",
+                thJumlah: "Jumlah",
+                labelLokasi: "Lokasi", thLokasi: "Lokasi",
+                labelKemaskiniTarikh: "Tarikh Kemaskini", thTKemaskini: "T. Kemaskini",
+                labelKemaskiniOleh: "Kemaskini Oleh", thOleh: "Kemaskini Oleh",
+                thTindakanAset: "Tindakan",
+
+                // Placeholders Borang Aset
+                placeholders: {
+                    assetTypeNew: "Masukkan Jenis Aset Baru",
+                    tarikh: "mm/dd/yyyy",
+                    rujukan: "Contoh: REF001",
+                    model: "Masukkan nama model aset",
+                    lokasi: "Contoh: Pejabat Utama / Stor A",
+                    kemaskiniOleh: "Nama anda",
+                    assetSearch: "Cari Jenis Aset, Rujukan, Model atau Lokasi..."
+                },
+
+                // Mesej Validasi
+                alertAssetType: "Sila pilih atau masukkan Jenis Aset yang sah.",
+                alertPasswordError: "Password salah!",
+                alertPasswordMismatch: "Password baru tidak sepadan!",
+                alertPasswordTooShort: "Password baru terlalu pendek (min 4 aksara)!",
+                alertPasswordSuccess: "Password berjaya ditukar! Sila log masuk dengan password baru anda.",
+                alertAssetTypeExists: "Jenis Aset ini sudah wujud!",
+                alertResetConfirm: "Password Lama salah. Adakah anda terlupa password dan ingin menetapkannya kepada password baru ini? Tindakan ini akan menukar password anda tanpa pengesahan password lama.",
+                alertResetAbort: "Sila masukkan password lama yang betul atau sahkan penetapan semula.",
+                alertDateInvalid: "Format tarikh tidak sah.",
+                alertAssetDelete: "Adakah anda pasti mahu memadam aset ini?",
+                alertSusutDelete: "Adakah anda pasti mahu memadam baris susut nilai ini? Ia mungkin menjejaskan pengiraan baris seterusnya.",
+                alertNoAssetData: "Rekod susut nilai untuk aset jenis ini kosong. Sila masukkan data pertama secara manually (Tarikh, Aset, Tambahan Kos, Kadar Susut).",
+                alertAutoFillConfirm: (cost, rate, assetType) => `Rekod susut nilai untuk ${assetType} kosong. Aset didaftarkan dengan Jumlah Kos RM${cost.toFixed(2)} dan Kadar Susut ${rate}%. \n\nAdakah anda mahu **menggunakan data ini sebagai entri awal** Susut Nilai (Auto-Isi)? \n\n(Pilih 'Batal' untuk memasukkan data secara manual sepenuhnya)`,
+                alertNoAssetFound: (assetType) => `Tiada rekod aset ditemui dalam Daftar Aset untuk Jenis Aset: ${assetType}. Anda perlu menambah rekod susut nilai pertama secara manual di halaman ini.`,
+                alertSoftcopyFileTooLarge: "Saiz fail terlalu besar (>500KB). Sila guna Pautan/URL untuk fail besar.",
+                alertSoftcopyNoLinkOrFile: "Sila masukkan Pautan/URL atau Muat Naik Gambar/Foto.",
+                alertSoftcopyAdded: "Dokumen softcopy berjaya ditambah!",
+                alertSoftcopyUpdated: "Dokumen softcopy berjaya dikemaskini!",
+                alertSoftcopyDelete: "Adakah anda pasti mahu memadam rekod dokumen ini?",
+                noRecordFound: "Tiada rekod aset ditemui.",
+
+
+                // Halaman Susut Nilai
+                susutPageTitle: "Pengiraan Susut Nilai",
+                susutPageSubTitle: "Aset:",
+                susutBackHomeBtn: "Kembali ke Jenis Aset",
+                addSusutRowBtn: "Tambah Baris",
+                thBil: "Bil", thSusutTarikh: "Tarikh", thSusutAset: "Aset",
+                thSusutBakiAwalKos: "Baki Awal Kos", thSusutTambahan: "Tambahan", thSusutLupus: "Lupus",
+                thSusutBakiAkhirKos: "Baki Akhir Kos", thSusutKadar: "Kadar Susut (%)", thSusutBakiAwalSusut: "Baki Awal Susut",
+                thSusutTambahanSusut: "Tambahan Susut", thSusutLupusSusut: "Lupus Susut", thSusutBakiAkhirSusut: "Baki Akhir Susut",
+                thSusutNilaiBuku: "Nilai Buku Bersih", thSusutTindakan: "Tindakan",
+
+                // Halaman Softcopy
+                softcopyPageTitle: "Dokumen Softcopy",
+                softcopyBackHomeBtn: "Kembali ke Menu Utama",
+                softcopyFormTitle: "Borang Tambah / Kemaskini Softcopy",
+                softcopyListTitle: "Senarai Dokumen Softcopy",
+                labelSoftcopyAssetType: "Jenis Aset",
+                labelSoftcopyDocName: "Nama Dokumen",
+                labelSoftcopyURL: "Pautan/URL Dokumen (untuk PDF/Fail Luaran)",
+                labelSoftcopyFile: "Atau Muat Naik Gambar/Foto Aset (Fail Kecil)",
+                fileWarning: "**PENTING:** Muat naik gambar yang bersaiz kecil sahaja (&lt;500KB). Imej besar boleh menyebabkan kegagalan penyimpanan.",
+                submitSoftcopyButton: "Tambah Dokumen",
+                updateSoftcopyButton: "Kemaskini Dokumen",
+                thSoftcopyAssetType: "Jenis Aset",
+                thSoftcopyDocName: "Nama Dokumen",
+                thSoftcopyURL: "Pautan (Jika Ada)",
+                thSoftcopyImage: "Imej",
+                thSoftcopyTindakan: "Tindakan",
+                placeholderDocName: "Contoh: Invois Komputer B",
+                placeholderDocURL: "http://atau_https://pautan_dokumen_anda",
+                externalLink: "Pautan Luar", // BARU
+                noSoftcopyRecord: "Tiada rekod dokumen softcopy ditemui." // BARU
+            },
+            en: {
+                title: "myEassyAssets.my",
+                loginTitle: "myEassyAssets.my",
+                homeTitle: "Smart assets. Smart management. Smart business.",
+
+                // Header
+                changePassHelpText: "If you **forgot** your password, you can enter anything for \"Old Password\".",
+
+                // Login & Password
+                loginPassLabel: "Password",
+                loginPlaceholder: "Enter Password",
+                loginButton: "Login",
+                loginChangePassBtn: "Forgot Password",
+                changePassTitle: "Change Password",
+                oldPassLabel: "Old Password",
+                newPassLabel: "New Password",
+                confirmPassLabel: "Confirm New Password",
+                savePassButton: "Save Password",
+                cancelButton: "Cancel", // BARU
+
+                // Menu
+                menuA: "A) Asset Registration",
+                descA: "Record new asset information and update existing assets.", // BARU
+                menuB: "B) Depreciation Calculation",
+                descB: "Select asset type and calculate annual depreciation.", // BARU
+                menuC: "C) Softcopy Documents",
+                descC: "Upload or store links to asset documents and images.", // BARU
+                menuLogout: "Logout",
+
+                // Halaman Jenis Aset
+                assetTypeTitle: "Select Asset Type",
+                assetTypeBackHomeBtn: "Back to Main Menu",
+                assetTypeHelp: "Click asset name to view depreciation record.",
+                addAssetTypeBtn: "Add Asset Type",
+                promptAssetTypeMsg: "Enter new Asset Type name (e.g.: Office Equipment):",
+                promptAssetTypeSuccess: "Asset Type successfully added!",
+                editBtn: "Edit",
+                deleteBtn: "Delete",
+                confirmEdit: "Change asset name from '{oldName}' to:",
+                confirmDelete: "Are you sure you want to delete Asset Type '{assetType}'? All its depreciation records WILL be deleted.",
+
+                // Halaman Aset
+                assetPageTitle: "Asset Registration System",
+                assetBackHomeBtn: "Back to Main Menu",
+                assetRegFormTitle: "Asset Registration Form",
+                assetRecordTitle: "Asset Record",
+                submitAssetButton: "Add / Update",
+                updateAssetButton: "Update Asset",
+                labelAssetSearch: "Search Asset:",
+
+                // Label Borang Aset
+                labelJenisAset: "Asset Type", thJenisAset: "Asset Type",
+                dropdownSelectAsset: "-- Select Asset Type --", // BARU
+                dropdownAddNewAsset: "Add New Asset Type...", // BARU
+                labelTarikhBeli: "Purchase Date", thTarikhBeli: "Purchase Date",
+                labelTarikhLupus: "Disposal Date", thTarikhLupus: "Disposal Date",
+                labelRujukan: "Ref. No.", thRujukan: "Ref. No.",
+                labelModel: "Model", thModel: "Model",
+                labelHayat: "Life Span (years)", thHayat: "Life Span",
+                labelKadarSusut: "Depreciation Rate (%)", thKadarSusut: "Depreciation Rate (%)",
+                labelUnit: "Unit", thUnit: "Unit",
+                labelHarga: "Unit Price (RM)", thHarga: "Price",
+                thJumlah: "Total",
+                labelLokasi: "Location", thLokasi: "Location",
+                labelKemaskiniTarikh: "Update Date", thTKemaskini: "Update Date",
+                labelKemaskiniOleh: "Updated By", thOleh: "Updated By",
+                thTindakanAset: "Action",
+
+                // Placeholders Borang Aset
+                placeholders: {
+                    assetTypeNew: "Enter New Asset Type",
+                    tarikh: "mm/dd/yyyy",
+                    rujukan: "Example: REF001",
+                    model: "Enter asset model name",
+                    lokasi: "Example: Main Office / Store A",
+                    kemaskiniOleh: "Your name",
+                    assetSearch: "Search Asset Type, Reference, Model or Location..."
+                },
+
+                // Mesej Validasi
+                alertAssetType: "Please select or enter a valid Asset Type.",
+                alertPasswordError: "Incorrect password!",
+                alertPasswordMismatch: "New passwords do not match!",
+                alertPasswordTooShort: "New password is too short (min 4 characters)!",
+                alertPasswordSuccess: "Password successfully changed! Please log in with your new password.",
+                alertAssetTypeExists: "This Asset Type already exists!",
+                alertResetConfirm: "Old Password incorrect. Did you forget your password and want to set it to this new password? This action will change your password without old password verification.",
+                alertResetAbort: "Please enter the correct old password or confirm the reset.",
+                alertDateInvalid: "Invalid date format.",
+                alertAssetDelete: "Are you sure you want to delete this asset?",
+                alertSusutDelete: "Are you sure you want to delete this depreciation row? It might affect subsequent row calculations.",
+                alertNoAssetData: "Depreciation record for this asset type is empty. Please enter the first data manually (Date, Asset, Addition Cost, Dep. Rate).",
+                alertAutoFillConfirm: (cost, rate, assetType) => `Depreciation record for ${assetType} is empty. Assets registered with Total Cost RM${cost.toFixed(2)} and Dep. Rate ${rate}%. \n\nDo you want to **use this data as the initial entry** (Auto-Fill)? \n\n(Select 'Cancel' to enter data manually)`,
+                alertNoAssetFound: (assetType) => `No asset record found in Asset Registration for Asset Type: ${assetType}. You must add the first depreciation record manually on this page.`,
+                alertSoftcopyFileTooLarge: "File size is too large (>500KB). Please use the Link/URL for large files.",
+                alertSoftcopyNoLinkOrFile: "Please enter a Link/URL or Upload an Image/Photo.",
+                alertSoftcopyAdded: "Softcopy document successfully added!",
+                alertSoftcopyUpdated: "Softcopy document successfully updated!",
+                alertSoftcopyDelete: "Are you sure you want to delete this document record?",
+                noRecordFound: "No asset records found.",
+
+                // Halaman Susut Nilai
+                susutPageTitle: "Depreciation Calculation",
+                susutPageSubTitle: "Asset:",
+                susutBackHomeBtn: "Back to Asset Type",
+                addSusutRowBtn: "Add Row",
+                thBil: "No", thSusutTarikh: "Date", thSusutAset: "Asset",
+                thSusutBakiAwalKos: "Beg. Balance Cost", thSusutTambahan: "Addition", thSusutLupus: "Disposal",
+                thSusutBakiAkhirKos: "End Balance Cost", thSusutKadar: "Dep. Rate (%)", thSusutBakiAwalSusut: "Beg. Balance Dep.",
+                thSusutTambahanSusut: "Add. Dep.", thSusutLupusSusut: "Disp. Dep.",
+                thSusutBakiAkhirSusut: "End Balance Dep.",
+                thSusutNilaiBuku: "Net Book Value", thSusutTindakan: "Action",
+
+                // Halaman Softcopy
+                softcopyPageTitle: "Softcopy Documents",
+                softcopyBackHomeBtn: "Back to Main Menu",
+                softcopyFormTitle: "Softcopy Add / Update Form",
+                softcopyListTitle: "Softcopy Document List",
+                labelSoftcopyAssetType: "Asset Type",
+                labelSoftcopyDocName: "Document Name",
+                labelSoftcopyURL: "Document Link/URL (for PDF/External File)",
+                labelSoftcopyFile: "Or Upload Asset Image/Photo (Small File)",
+                fileWarning: "**IMPORTANT:** Upload small size images only (&lt;500KB). Large images may cause storage failure.",
+                submitSoftcopyButton: "Add Document",
+                updateSoftcopyButton: "Update Document",
+                thSoftcopyAssetType: "Asset Type",
+                thSoftcopyDocName: "Document Name",
+                thSoftcopyURL: "Link (If Any)",
+                thSoftcopyImage: "Image",
+                thSoftcopyTindakan: "Action",
+                placeholderDocName: "Example: Computer Invoice B",
+                placeholderDocURL: "http://or_https://your_document_link",
+                externalLink: "External Link", // BARU
+                noSoftcopyRecord: "No softcopy document records found." // BARU
+            }
+        };
+
+        let currentLanguage = localStorage.getItem('language') || 'bm';
+        const DEFAULT_PASSWORD = "admin123";
+        let softcopyEditIndex = -1;
+        const softcopySubmitButton = document.getElementById("submitSoftcopyButton");
+        let editIndex=-1; // Untuk Halaman Aset
+        const submitButton = document.getElementById("submitAssetButton"); // Untuk Halaman Aset
+
+        // --- FUNGSI ASAS & LOGIK BAHASA ---
+        function applyLanguage(lang) {
+            const text = languages[lang];
+            if (!text) return;
+
+            // Teks di seluruh halaman
+            document.getElementById('pageTitle').textContent = text.title;
+            document.getElementById('loginTitle').textContent = text.loginTitle;
+            document.getElementById('homeTitle').textContent = text.homeTitle;
+
+            // Header
+            const helpTextElement = document.getElementById('changePasswordPage') && document.getElementById('changePassHelpText');
+            if (helpTextElement) helpTextElement.innerHTML = text.changePassHelpText.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
+
+            // Login & Password
+            document.getElementById('loginPassLabel').textContent = text.loginPassLabel;
+            document.getElementById('passwordInput').placeholder = text.loginPlaceholder;
+            document.getElementById('loginButton').textContent = text.loginButton;
+            document.getElementById('loginChangePassBtn').textContent = text.loginChangePassBtn;
+            document.getElementById('changePassTitle').textContent = text.changePassTitle;
+            document.getElementById('oldPassLabel').textContent = text.oldPassLabel;
+            document.getElementById('newPassLabel').textContent = text.newPassLabel;
+            document.getElementById('confirmPassLabel').textContent = text.confirmPassLabel;
+            document.getElementById('savePassButton').textContent = text.savePassButton;
+            document.getElementById('cancelPassButton').textContent = text.cancelButton; // BARU
+
+            // Menu
+            document.getElementById('menuA').textContent = text.menuA;
+            document.getElementById('descA').textContent = text.descA; // BARU
+            document.getElementById('menuB').textContent = text.menuB;
+            document.getElementById('descB').textContent = text.descB; // BARU
+            document.getElementById('menuC').textContent = text.menuC;
+            document.getElementById('descC').textContent = text.descC; // BARU
+            document.getElementById('menuLogout').textContent = text.menuLogout;
+
+            // Halaman Jenis Aset
+            document.getElementById('assetTypeTitle').textContent = text.assetTypeTitle;
+            document.getElementById('assetTypeBackHomeBtn').innerHTML = ' &larr; ' + text.assetTypeBackHomeBtn;
+            document.getElementById('assetTypeHelp').textContent = text.assetTypeHelp;
+            document.getElementById('addAssetTypeBtn').textContent = text.addAssetTypeBtn;
+
+            // Halaman Aset
+            document.getElementById('assetPageTitle').textContent = text.assetPageTitle;
+            document.getElementById('assetBackHomeBtn').innerHTML = ' &larr; ' + text.assetBackHomeBtn;
+            document.getElementById('assetRegFormTitle').textContent = text.assetRegFormTitle; // BARU
+            document.getElementById('assetRecordTitle').textContent = text.assetRecordTitle; // BARU
+
+            // PENTING: Kemaskini teks butang berdasarkan mod edit
+            if (submitButton) {
+                if (editIndex === -1) {
+                    submitButton.textContent = text.submitAssetButton;
+                } else {
+                    submitButton.textContent = text.updateAssetButton;
+                }
+            }
+
+            // KEMASKINI PLACEHOLDERS DI SINI
+            const ph = text.placeholders;
+            document.getElementById('assetSearchInput').placeholder = ph.assetSearch;
+            document.getElementById('jenisAsetInput').placeholder = ph.assetTypeNew; // Jenis Aset Baru
+            document.getElementById('tarikhBeli').placeholder = ph.tarikh;
+            document.getElementById('tarikhLupus').placeholder = ph.tarikh;
+            document.getElementById('rujukan').placeholder = ph.rujukan;
+            document.getElementById('model').placeholder = ph.model;
+            document.getElementById('lokasi').placeholder = ph.lokasi;
+            document.getElementById('kemaskiniTarikh').placeholder = ph.tarikh;
+            document.getElementById('kemaskiniOleh').placeholder = ph.kemaskiniOleh;
+            document.getElementById('softcopyDocName').placeholder = text.placeholderDocName;
+            document.getElementById('softcopyURL').placeholder = text.placeholderDocURL;
+
+
+            // Halaman Aset (Header Jadual)
+            document.getElementById('labelJenisAset').textContent = text.labelJenisAset;
+            document.getElementById('thJenisAset').textContent = text.thJenisAset;
+            document.getElementById('labelTarikhBeli').textContent = text.labelTarikhBeli;
+            document.getElementById('thTarikhBeli').textContent = text.thTarikhBeli;
+            document.getElementById('labelTarikhLupus').textContent = text.labelTarikhLupus;
+            document.getElementById('thTarikhLupus').textContent = text.thTarikhLupus;
+            document.getElementById('labelRujukan').textContent = text.labelRujukan;
+            document.getElementById('thRujukan').textContent = text.thRujukan;
+            document.getElementById('labelModel').textContent = text.labelModel;
+            document.getElementById('thModel').textContent = text.thModel;
+            document.getElementById('labelHayat').textContent = text.labelHayat;
+            document.getElementById('thHayat').textContent = text.thHayat;
+            document.getElementById('labelKadarSusut').textContent = text.labelKadarSusut;
+            document.getElementById('thKadarSusut').textContent = text.thKadarSusut;
+            document.getElementById('labelUnit').textContent = text.labelUnit;
+            document.getElementById('thUnit').textContent = text.thUnit;
+            document.getElementById('labelHarga').textContent = text.labelHarga;
+            document.getElementById('thHarga').textContent = text.thHarga;
+            document.getElementById('thJumlah').textContent = text.thJumlah;
+            document.getElementById('labelLokasi').textContent = text.labelLokasi;
+            document.getElementById('thLokasi').textContent = text.thLokasi;
+            document.getElementById('labelKemaskiniTarikh').textContent = text.labelKemaskiniTarikh;
+            document.getElementById('thTKemaskini').textContent = text.thTKemaskini;
+            document.getElementById('labelKemaskiniOleh').textContent = text.labelKemaskiniOleh;
+            document.getElementById('thOleh').textContent = text.thOleh;
+            document.getElementById('thTindakanAset').textContent = text.thTindakanAset;
+            document.getElementById('labelAssetSearch').textContent = text.labelAssetSearch;
+
+            // Halaman Susut Nilai (Title & Butang)
+            document.getElementById('susutPageTitle').textContent = text.susutPageTitle;
+            document.getElementById('susutBackHomeBtn').innerHTML = ' &larr; ' + text.susutBackHomeBtn;
+            document.getElementById('addSusutRowBtn').textContent = text.addSusutRowBtn;
+
+            // Halaman Susut Nilai (Header Jadual)
+            document.getElementById('thBil').textContent = text.thBil;
+            document.getElementById('thSusutTarikh').textContent = text.thSusutTarikh;
+            document.getElementById('thSusutAset').textContent = text.thSusutAset;
+            document.getElementById('thSusutBakiAwalKos').textContent = text.thSusutBakiAwalKos;
+            document.getElementById('thSusutTambahan').textContent = text.thSusutTambahan;
+            document.getElementById('thSusutLupus').textContent = text.thSusutLupus;
+            document.getElementById('thSusutBakiAkhirKos').textContent = text.thSusutBakiAkhirKos;
+            document.getElementById('thSusutKadar').textContent = text.thSusutKadar;
+            document.getElementById('thSusutBakiAwalSusut').textContent = text.thSusutBakiAwalSusut;
+            document.getElementById('thSusutTambahanSusut').textContent = text.thSusutTambahanSusut;
+            document.getElementById('thSusutLupusSusut').textContent = text.thSusutLupusSusut;
+            document.getElementById('thSusutBakiAkhirSusut').textContent = text.thSusutBakiAkhirSusut;
+            document.getElementById('thSusutNilaiBuku').textContent = text.thSusutNilaiBuku;
+            document.getElementById('thSusutTindakan').textContent = text.thSusutTindakan;
+
+            // Halaman Softcopy
+            document.getElementById('softcopyPageTitle').textContent = text.softcopyPageTitle;
+            document.getElementById('softcopyBackHomeBtn').innerHTML = ' &larr; ' + text.softcopyBackHomeBtn;
+            document.getElementById('softcopyFormTitle').textContent = text.softcopyFormTitle; // BARU
+            document.getElementById('softcopyListTitle').textContent = text.softcopyListTitle; // BARU
+            document.getElementById('labelSoftcopyAssetType').textContent = text.labelSoftcopyAssetType;
+            document.getElementById('labelSoftcopyDocName').textContent = text.labelSoftcopyDocName;
+            document.getElementById('softcopyDocName').placeholder = text.placeholderDocName;
+            document.getElementById('labelSoftcopyURL').textContent = text.labelSoftcopyURL;
+            document.getElementById('softcopyURL').placeholder = text.placeholderDocURL;
+            document.getElementById('labelSoftcopyFile').textContent = text.labelSoftcopyFile;
+            document.getElementById('fileWarning').innerHTML = text.fileWarning;
+
+            // Kemaskini teks butang berdasarkan mod edit Softcopy
+            if (softcopySubmitButton) {
+                softcopySubmitButton.textContent = softcopyEditIndex === -1 ? text.submitSoftcopyButton : text.updateSoftcopyButton;
+            }
+
+            document.getElementById('thSoftcopyAssetType').textContent = text.thSoftcopyAssetType;
+            document.getElementById('thSoftcopyDocName').textContent = text.thSoftcopyDocName;
+            document.getElementById('thSoftcopyURL').textContent = text.thSoftcopyURL;
+            document.getElementById('thSoftcopyImage').textContent = text.thSoftcopyImage;
+            document.getElementById('thSoftcopyTindakan').textContent = text.thSoftcopyTindakan;
+
+            // Set butang bahasa aktif
+            document.getElementById('langBM').classList.remove('active');
+            document.getElementById('langEN').classList.remove('active');
+            document.getElementById(`lang${lang.toUpperCase()}`).classList.add('active');
+
+            // Render semula senarai jika berada di halaman yang berkaitan
+            if(document.getElementById('assetTypePage').style.display === 'block') {
+                renderAssetTypeList();
+            }
+            if(document.getElementById('pageSusutNilai').style.display === 'block') {
+                renderSusutTable();
+            }
+            if(document.getElementById('mainPage').style.display === 'block') {
+                searchAssets(); // Panggil searchAssets untuk memastikan jadual dipaparkan semula dengan teks baru
+            }
+            if(document.getElementById('pageSoftcopy').style.display === 'block') {
+                renderSoftcopyTable();
+            }
+
+            // Kemaskini tajuk halaman Susut Nilai jika sedang dibuka
+            const currentType = localStorage.getItem("currentAssetType");
+            if (document.getElementById('pageSusutNilai').style.display === 'block' && currentType) {
+                const subTitleElement = document.getElementById('susutPageSubTitle');
+                const titleText = text.susutPageSubTitle;
+                subTitleElement.textContent = `${titleText} ${currentType}`;
+            }
+
+        }
+
+        function changeLanguage(lang) {
+            currentLanguage = lang;
+            localStorage.setItem('language', lang);
+            applyLanguage(lang);
+        }
+
+        function togglePassword(inputId, toggleId) {
+            const input = document.getElementById(inputId);
+            const toggle = document.getElementById(toggleId);
+            if (input.type === "password") {
+                input.type = "text";
+                toggle.textContent = "👁"; // TUKAR KEPADA MATA (Show)
+            } else {
+                input.type = "password";
+                toggle.textContent = "X"; // TUKAR KEPADA X (Hide)
+            }
+        }
+
+        // --- FUNGSI LOGIN & PASSWORD ---
+        function getPassword() {
+            // Ambil password dari Local Storage, jika tiada, guna DEFAULT_PASSWORD
+            return localStorage.getItem("password") || DEFAULT_PASSWORD;
+        }
+
+        function processLogin() {
+            const inputPass = document.getElementById("passwordInput").value;
+            const actualPass = getPassword();
+            const errorElement = document.getElementById("loginError");
+            const text = languages[currentLanguage];
+
+            if (inputPass === actualPass) {
+                errorElement.textContent = "";
+                openPage('homePage');
+            } else {
+                errorElement.textContent = text.alertPasswordError;
+            }
+        }
+
+        function saveNewPassword() {
+            const oldP = document.getElementById("oldPass").value;
+            const newP = document.getElementById("newPass").value;
+            const conP = document.getElementById("confirmPass").value;
+            const errorElement = document.getElementById("changeError");
+            const text = languages[currentLanguage];
+            const actualPass = getPassword();
+            errorElement.textContent = "";
+            let proceed = false;
+
+            // 1. Semak Password Lama
+            if (oldP === actualPass) {
+                proceed = true;
+            } else {
+                // Jika Password Lama salah, tanya untuk reset
+                const confirmReset = confirm(text.alertResetConfirm);
+                if (confirmReset) {
+                    proceed = true;
+                } else {
+                    document.getElementById("changeError").textContent = text.alertResetAbort;
+                    return;
+                }
+            }
+
+            // 2. Jika proceed, teruskan dengan validasi password baru
+            if(proceed){
+                if(newP !== conP){
+                    document.getElementById("changeError").textContent = text.alertPasswordMismatch;
+                    return;
+                }
+                if(newP.length < 4){
+                    document.getElementById("changeError").textContent = text.alertPasswordTooShort;
+                    return;
+                }
+
+                // Simpan password baru
+                localStorage.setItem("password", newP);
+                alert(text.alertPasswordSuccess);
+
+                // Reset borang dan kembali ke halaman login
+                document.getElementById("oldPass").value = "";
+                document.getElementById("newPass").value = "";
+                document.getElementById("confirmPass").value = "";
+                document.getElementById("changeError").textContent = "";
+                document.getElementById("loginError").textContent = "";
+                openPage('loginPage');
+            }
+        }
+
+        // --- FUNGSI NAVIGASI ---
+        function openPage(id){
+            // Sembunyikan semua halaman
+            ['loginPage','changePasswordPage','homePage','mainPage','pageSusutNilai','pageSoftcopy', 'assetTypePage'].forEach(p => document.getElementById(p).style.display = "none");
+            // Tunjukkan halaman yang diminta
+            document.getElementById(id).style.display = "block";
+
+            // Reset borang/status apabila membuka halaman tertentu
+            if (id === 'changePasswordPage') {
+                document.getElementById("oldPass").value = "";
+                document.getElementById("newPass").value = "";
+                document.getElementById("confirmPass").value = "";
+                document.getElementById("changeError").textContent = "";
+            }
+            if (id === 'mainPage') {
+                // 1. Reset Borang sepenuhnya (memastikan tiada pengisian automatik)
+                document.getElementById('assetForm').reset();
+                // 2. Pastikan Butang kembali ke mod "Tambah / Kemaskini"
+                editIndex = -1;
+                submitButton.textContent = languages[currentLanguage].submitAssetButton;
+                // 3. Muat turun data
+                fillAssetTypeDropdown();
+                searchAssets();
+            }
+            if(id === 'assetTypePage') {
+                renderAssetTypeList();
+            }
+            if(id === 'pageSoftcopy') {
+                softcopyEditIndex = -1;
+                softcopySubmitButton.textContent = languages[currentLanguage].submitSoftcopyButton;
+                document.getElementById('softcopyForm').reset();
+                document.getElementById('imagePreview').src = '';
+                document.getElementById('imagePreview').style.display = 'none';
+                fillSoftcopyAssetTypeDropdown();
+                renderSoftcopyTable();
+            }
+
+            applyLanguage(currentLanguage); // Panggil applyLanguage untuk kemaskini placeholders dan teks
+        }
+
+        function logout(){
+            document.getElementById("passwordInput").value = "";
+            openPage("loginPage");
+        }
+
+        // --- FUNGSI URUS JENIS ASET (Halaman A & B) ---
+        let assetTypes = JSON.parse(localStorage.getItem("assetTypes")) || [];
+
+        function saveAssetTypes() {
+            localStorage.setItem("assetTypes", JSON.stringify(assetTypes));
+        }
+
+        function fillAssetTypeDropdown() {
+            const select = document.getElementById('jenisAsetSelect');
+            const text = languages[currentLanguage];
+            select.innerHTML = `<option value="" disabled selected>${text.dropdownSelectAsset}</option>`;
+            assetTypes.forEach(type => {
+                select.innerHTML += `<option value="${type}">${type}</option>`;
+            });
+            select.innerHTML += `<option value="NEW_ASSET_TYPE">${text.dropdownAddNewAsset}</option>`;
+        }
+
+        function fillSoftcopyAssetTypeDropdown() {
+            const select = document.getElementById('softcopyAssetType');
+            const text = languages[currentLanguage];
+            // Tambahkan pilihan kosong terlebih dahulu
+            select.innerHTML = `<option value="" disabled selected>${text.dropdownSelectAsset}</option>`;
+            assetTypes.forEach(type => {
+                select.innerHTML += `<option value="${type}">${type}</option>`;
+            });
+        }
+
+        function checkNewAssetType(value) {
+            const input = document.getElementById('jenisAsetInput');
+            if (value === 'NEW_ASSET_TYPE') {
+                input.style.display = 'block';
+                input.required = true;
+            } else {
+                input.style.display = 'none';
+                input.required = false;
+            }
+        }
+
+        function promptAddAssetType() {
+            const text = languages[currentLanguage];
+            const newType = prompt(text.promptAssetTypeMsg);
+            if (newType && newType.trim() !== "") {
+                const cleanType = newType.trim();
+                if (!assetTypes.includes(cleanType)) {
+                    assetTypes.push(cleanType);
+                    saveAssetTypes();
+                    renderAssetTypeList();
+                    alert(text.promptAssetTypeSuccess);
+                } else {
+                    alert(text.alertAssetTypeExists);
+                }
+            }
+        }
+
+        function renderAssetTypeList() {
+            const ul = document.getElementById('assetTypeList');
+            ul.innerHTML = "";
+            const text = languages[currentLanguage];
+            const editText = text.editBtn;
+            const deleteText = text.deleteBtn;
+
+            assetTypes.forEach(type => {
+                const li = document.createElement('li');
+
+                // Nama Aset (Boleh Klik)
+                const nameLink = document.createElement('span');
+                nameLink.className = 'asset-name-link';
+                nameLink.textContent = type;
+                nameLink.setAttribute('onclick', `openSusutCalculation('${type}')`);
+                li.appendChild(nameLink);
+
+                // Butang Tindakan
+                const actionsDiv = document.createElement('div');
+                actionsDiv.className = 'asset-actions';
+
+                const editBtn = document.createElement('button');
+                editBtn.textContent = editText;
+                editBtn.className = 'btn-edit';
+                editBtn.setAttribute('onclick', `editAssetType('${type}')`);
+                actionsDiv.appendChild(editBtn);
+
+                const deleteBtn = document.createElement('button');
+                deleteBtn.textContent = deleteText;
+                deleteBtn.className = 'btn-delete';
+                deleteBtn.setAttribute('onclick', `deleteAssetType('${type}')`);
+                actionsDiv.appendChild(deleteBtn);
+
+                li.appendChild(actionsDiv);
+                ul.appendChild(li);
+            });
+        }
+
+        function editAssetType(oldName) {
+            const lang = currentLanguage;
+            const text = languages[lang];
+            const newName = prompt(text.confirmEdit.replace('{oldName}', oldName), oldName);
+
+            if (newName && newName.trim() !== "" && newName.trim() !== oldName) {
+                const cleanNewName = newName.trim();
+                const index = assetTypes.indexOf(oldName);
+
+                if (index !== -1) {
+                    // 1. Tukar nama dalam array assetTypes
+                    assetTypes[index] = cleanNewName;
+                    saveAssetTypes();
+
+                    // 2. Tukar nama key dalam Local Storage (data susut nilai)
+                    const oldSusutData = localStorage.getItem(`susutData_${oldName}`);
+                    if (oldSusutData) {
+                        localStorage.setItem(`susutData_${cleanNewName}`, oldSusutData);
+                        localStorage.removeItem(`susutData_${oldName}`);
+                    }
+
+                    // 3. Kemaskini Jenis Aset dalam asetList (Halaman A)
+                    aset = JSON.parse(localStorage.getItem("asetList")) || [];
+                    aset.forEach(asset => {
+                        if (asset.jenisAset === oldName) {
+                            asset.jenisAset = cleanNewName;
+                        }
+                    });
+                    localStorage.setItem("asetList", JSON.stringify(aset));
+
+                    // 4. Kemaskini Jenis Aset dalam softcopyList
+                    softcopyList = JSON.parse(localStorage.getItem("softcopyList")) || [];
+                    softcopyList.forEach(doc => {
+                        if (doc.assetType === oldName) {
+                            doc.assetType = cleanNewName;
+                        }
+                    });
+                    saveSoftcopyList();
+
+                    renderAssetTypeList();
+                    fillAssetTypeDropdown();
+                    searchAssets(); // Refresh asset table
+                    alert(text.promptAssetTypeSuccess.replace('ditambah', 'dikemaskini').replace('added', 'updated')); // Guna mesej success asal, ubah perkataan
+                }
+            }
+        }
+
+        function deleteAssetType(assetType) {
+            const text = languages[currentLanguage];
+            if (confirm(text.confirmDelete.replace('{assetType}', assetType))) {
+                // 1. Padam dari assetTypes
+                assetTypes = assetTypes.filter(type => type !== assetType);
+                saveAssetTypes();
+
+                // 2. Padam data susut nilai yang berkaitan
+                localStorage.removeItem(`susutData_${assetType}`);
+
+                // 3. Padam rekod aset dalam asetList (Halaman A)
+                aset = JSON.parse(localStorage.getItem("asetList")) || [];
+                aset = aset.filter(asset => asset.jenisAset !== assetType);
+                localStorage.setItem("asetList", JSON.stringify(aset));
+
+                // 4. Padam rekod softcopy yang berkaitan
+                softcopyList = JSON.parse(localStorage.getItem("softcopyList")) || [];
+                softcopyList = softcopyList.filter(doc => doc.assetType !== assetType);
+                saveSoftcopyList();
+
+                renderAssetTypeList();
+                fillAssetTypeDropdown();
+                searchAssets(); // Refresh asset table
+                alert(`Jenis Aset '${assetType}' berjaya dipadam.`);
+            }
+        }
+
+        // --- FUNGSI URUS ASET (Halaman A) ---
+        let aset = JSON.parse(localStorage.getItem("asetList")) || [];
+
+        document.getElementById('assetForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const text = languages[currentLanguage];
+
+            let selectedJenisAset = document.getElementById('jenisAsetSelect').value;
+            const jenisAsetInput = document.getElementById('jenisAsetInput').value.trim();
+
+            // Handle New Asset Type
+            if (selectedJenisAset === 'NEW_ASSET_TYPE' && jenisAsetInput) {
+                selectedJenisAset = jenisAsetInput;
+                if (!assetTypes.includes(selectedJenisAset)) {
+                    assetTypes.push(selectedJenisAset);
+                    saveAssetTypes();
+                }
+            } else if (!selectedJenisAset || selectedJenisAset === 'NEW_ASSET_TYPE') {
+                alert(text.alertAssetType);
+                return;
+            }
+
+            const tarikhBeli = document.getElementById('tarikhBeli').value;
+            const tarikhLupus = document.getElementById('tarikhLupus').value;
+            const rujukan = document.getElementById('rujukan').value.trim();
+            const model = document.getElementById('model').value.trim();
+            const jangkaHayat = document.getElementById('jangkaHayat').value;
+            const kadarSusut = document.getElementById('kadarSusut').value;
+            const unit = document.getElementById('unit').value;
+            const harga = document.getElementById('harga').value;
+            const lokasi = document.getElementById('lokasi').value.trim();
+            const kemaskiniTarikh = document.getElementById('kemaskiniTarikh').value;
+            const kemaskiniOleh = document.getElementById('kemaskiniOleh').value.trim();
+
+            const finalUnit = unit ? Number(unit) : null;
+            const finalHarga = harga ? Number(harga) : null;
+            const finalJangkaHayat = jangkaHayat ? Number(jangkaHayat) : null;
+            const finalKadarSusut = kadarSusut ? Number(kadarSusut) : null;
+
+            const jumlahHarga = (finalUnit && finalHarga) ? (finalUnit * finalHarga) : null;
+
+            const d = {
+                jenisAset: selectedJenisAset,
+                tarikhBeli: tarikhBeli,
+                tarikhLupus: tarikhLupus,
+                rujukan: rujukan,
+                model: model,
+                jangkaHayat: finalJangkaHayat,
+                kadarSusut: finalKadarSusut,
+                unit: finalUnit,
+                harga: finalHarga,
+                lokasi: lokasi,
+                kemaskiniTarikh: kemaskiniTarikh,
+                kemaskiniOleh: kemaskiniOleh,
+                jumlahHarga: jumlahHarga
+            };
+
+            if(editIndex === -1) {
+                aset.push(d);
+                alert(text.submitAssetButton.split(' / ')[0] + " Berjaya!"); // Mesej kejayaan
+            } else {
+                aset[editIndex] = d;
+                alert(text.updateAssetButton + " Berjaya!"); // Mesej kejayaan
+            }
+
+            editIndex = -1;
+            this.reset();
+            submitButton.textContent = text.submitAssetButton;
+            localStorage.setItem("asetList", JSON.stringify(aset)); // Simpan perubahan ke Local Storage
+            searchAssets(); // Render semula jadual
+            fillAssetTypeDropdown(); // Muat semula dropdown untuk memasukkan jenis aset baru jika ada
+
+            // Reset dropdown ke default dan sembunyikan input teks
+            document.getElementById('jenisAsetSelect').value = "";
+            document.getElementById('jenisAsetInput').style.display = 'none';
+            document.getElementById('jenisAsetInput').required = false;
+
+            applyLanguage(currentLanguage); // Pastikan placeholders kembali dikemaskini selepas reset
+        });
+
+        function editAsset(i){
+            const a = aset[i];
+            editIndex = i;
+            const text = languages[currentLanguage];
+
+            // Set Jenis Aset dalam borang
+            document.getElementById('jenisAsetSelect').value = a.jenisAset || "";
+            document.getElementById('jenisAsetInput').style.display = 'none';
+            document.getElementById('jenisAsetInput').required = false;
+
+            // Tarikh dan String
+            document.getElementById('tarikhBeli').value = a.tarikhBeli;
+            document.getElementById('tarikhLupus').value = a.tarikhLupus;
+            document.getElementById('rujukan').value = a.rujukan;
+            document.getElementById('model').value = a.model;
+            document.getElementById('lokasi').value = a.lokasi;
+            document.getElementById('kemaskiniTarikh').value = a.kemaskiniTarikh;
+            document.getElementById('kemaskiniOleh').value = a.kemaskiniOleh;
+
+            // Nombor
+            document.getElementById('jangkaHayat').value = a.jangkaHayat || '';
+            document.getElementById('kadarSusut').value = a.kadarSusut || '';
+            document.getElementById('unit').value = a.unit || '';
+            document.getElementById('harga').value = a.harga || '';
+
+            // Tukar teks butang ke "Kemaskini Aset"
+            submitButton.textContent = text.updateAssetButton;
+        }
+
+        function deleteAsset(i) {
+            const text = languages[currentLanguage];
+            if (confirm(text.alertAssetDelete)) {
+                aset.splice(i, 1);
+                localStorage.setItem("asetList", JSON.stringify(aset));
+                searchAssets();
+                alert("Aset berjaya dipadam.");
+            }
+        }
+
+        function searchAssets() {
+            const searchInput = document.getElementById('assetSearchInput').value.toLowerCase();
+            // Muat semula aset dari LocalStorage untuk mendapatkan data terkini
+            aset = JSON.parse(localStorage.getItem("asetList")) || [];
+
+            if (!searchInput) {
+                // Jika kotak carian kosong, render semua
+                renderAssetTable(aset);
+                return;
+            }
+
+            const filteredAset = aset.filter(item => {
+                // Gabungkan medan yang boleh dicari
+                const searchString = `${item.jenisAset} ${item.rujukan} ${item.model} ${item.lokasi}`.toLowerCase();
+                return searchString.includes(searchInput);
+            });
+
+            renderAssetTable(filteredAset);
+        }
+
+        /**
+         * Fungsi dikemaskini untuk menerima senarai aset yang ditapis.
+         * @param {Array} filteredList - Senarai aset yang ingin dipaparkan.
+         */
+        function renderAssetTable(filteredList = aset){
+            // PENTING: Gunakan array 'aset' global yang sudah dimuatkan oleh searchAssets() atau muatkan semula di sini
+            if (!aset || aset.length === 0) {
+                 aset = JSON.parse(localStorage.getItem("asetList")) || [];
+            }
+
+            const listToRender = filteredList;
+            const tbody = document.getElementById("assetTable");
+            tbody.innerHTML = "";
+            const text = languages[currentLanguage];
+            const editText = text.editBtn;
+            const deleteText = text.deleteBtn;
+
+            if (listToRender.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="14" style="text-align: center;">${text.noRecordFound}</td></tr>`;
+                return;
+            }
+
+            listToRender.forEach((item) => {
+                // Cari indeks asal item dalam array aset (penting untuk fungsi edit/delete)
+                // Ini memastikan edit/delete sentiasa berfungsi pada data asal LocalStorage, walaupun kita memaparkan senarai yang ditapis.
+                const originalIndex = aset.findIndex(a =>
+                    a.jenisAset === item.jenisAset &&
+                    a.rujukan === item.rujukan &&
+                    a.model === item.model &&
+                    a.tarikhBeli === item.tarikhBeli
+                );
+
+                // Pastikan indeks ditemui sebelum dipaparkan
+                if (originalIndex === -1) return;
+
+                const jumlahHarga = item.unit * item.harga;
+
+                tbody.innerHTML += `<tr>
+                    <td>${item.jenisAset || "-"}</td>
+                    <td>${item.tarikhBeli}</td>
+                    <td>${item.tarikhLupus || '-'}</td>
+                    <td>${item.rujukan || '-'}</td>
+                    <td>${item.model || '-'}</td>
+                    <td>${item.jangkaHayat || '-'}</td>
+                    <td>${item.unit || '-'}</td>
+                    <td>${item.harga ? item.harga.toFixed(2) : '-'}</td>
+                    <td>${jumlahHarga ? jumlahHarga.toFixed(2) : '-'}</td>
+                    <td>${item.kadarSusut ? item.kadarSusut + '%' : '-'}</td>
+                    <td>${item.lokasi || '-'}</td>
+                    <td>${item.kemaskiniTarikh || '-'}</td>
+                    <td>${item.kemaskiniOleh || '-'}</td>
+                    <td>
+                        <button class="btn-edit" onclick="editAsset(${originalIndex})">${editText}</button>
+                        <button class="btn-delete" onclick="deleteAsset(${originalIndex})">${deleteText}</button>
+                    </td>
+                </tr>`;
+            });
+        }
+
+
+        // --- FUNGSI SUSUT NILAI (Halaman B) ---
+        let susutData = [];
+
+        function getSusutData(assetType) {
+            return JSON.parse(localStorage.getItem(`susutData_${assetType}`)) || [];
+        }
+
+        function saveSusutData(assetType, data) {
+            localStorage.setItem(`susutData_${assetType}`, JSON.stringify(data));
+        }
+
+        function addManualInitialRow(assetType) {
+            const initialEntry = {
+                tarikh: new Date().toISOString().split('T')[0], // Tarikh hari ini
+                aset: assetType,
+                bakiAwalKos: 0,
+                tambahanKos: 0,
+                lupusKos: 0,
+                kadarSusut: 0,
+            };
+            susutData.push(initialEntry);
+            saveSusutData(assetType, susutData);
+        }
+
+        function openSusutCalculation(assetType) {
+            const text = languages[currentLanguage];
+            localStorage.setItem("currentAssetType", assetType); // Simpan Jenis Aset semasa
+
+            // 1. Kemaskini tajuk halaman
+            const subTitleElement = document.getElementById('susutPageSubTitle');
+            const titleText = text.susutPageSubTitle;
+            subTitleElement.textContent = `${titleText} ${assetType}`;
+            subTitleElement.setAttribute('data-type', assetType);
+
+            // 2. Muat data susut nilai sedia ada
+            susutData = getSusutData(assetType);
+
+            // 3. Periksa jika data susut nilai kosong
+            if (susutData.length === 0) {
+                // Kumpulkan data aset dari Daftar Aset (A)
+                const relevantAssets = aset.filter(a => a.jenisAset === assetType);
+                let initialCost = 0;
+                let initialRate = 0;
+                let initialDate = new Date().toISOString().split('T')[0];
+
+                if (relevantAssets.length > 0) {
+                    // Hitung Jumlah Kos dan dapatkan Kadar Susut Nilai purata (atau ambil dari yang pertama)
+                    relevantAssets.forEach(a => {
+                        initialCost += a.jumlahHarga || 0; // Guna jumlahHarga yang dikira
+                        // Asumsi: Ambil kadar susut dari aset pertama
+                        if (initialRate === 0) {
+                            initialRate = a.kadarSusut || 0;
+                        }
+                    });
+                    initialDate = relevantAssets[0].tarikhBeli; // Ambil tarikh beli aset pertama
+
+                    // Beri pilihan kepada pengguna: Auto-isi atau Manual?
+                    const confirmMsg = text.alertAutoFillConfirm(initialCost, initialRate, assetType);
+                    if (confirm(confirmMsg)) {
+                        // Pilihan 1: AUTO-ISI DARI DAFTAR ASET (Halaman A)
+                        const initialEntry = {
+                            tarikh: initialDate,
+                            aset: assetType,
+                            bakiAwalKos: 0,
+                            tambahanKos: initialCost,
+                            lupusKos: 0,
+                            kadarSusut: initialRate,
+                        };
+                        susutData.push(initialEntry);
+                        saveSusutData(assetType, susutData);
+                    } else {
+                        // Pilihan 2: MANUAL - TAMBAH BARIS KOSONG PERTAMA
+                        addManualInitialRow(assetType);
+                    }
+                } else {
+                    // Jika tiada rekod di Daftar Aset (Halaman A) - Minta pengguna tambah secara manual
+                    const confirmMsg = text.alertNoAssetFound(assetType);
+                    alert(confirmMsg);
+                    addManualInitialRow(assetType);
+                }
+            }
+
+            // 4. Navigasi ke halaman & render jadual
+            openPage('pageSusutNilai');
+            renderSusutTable();
+        }
+
+        function addSusutRow() {
+            const currentType = localStorage.getItem("currentAssetType");
+            const text = languages[currentLanguage];
+
+            // Dapatkan baris terakhir untuk menyalin data Aset dan Kadar Susut Nilai
+            let lastRow = susutData.length > 0 ? susutData[susutData.length - 1] : {
+                aset: currentType,
+                kadarSusut: 0
+            };
+
+            const newRow = {
+                tarikh: new Date().toISOString().split('T')[0],
+                aset: lastRow.aset,
+                bakiAwalKos: 0, // Akan dikira dalam renderSusutTable
+                tambahanKos: 0,
+                lupusKos: 0,
+                kadarSusut: lastRow.kadarSusut,
+            };
+
+            susutData.push(newRow);
+            saveSusutData(currentType, susutData);
+            renderSusutTable();
+        }
+
+        function deleteSusutRow(index) {
+            const currentType = localStorage.getItem("currentAssetType");
+            const text = languages[currentLanguage];
+
+            if (confirm(text.alertSusutDelete)) {
+                susutData.splice(index, 1);
+                saveSusutData(currentType, susutData);
+                renderSusutTable(); // Render semula untuk pengiraan semula baki
+            }
+        }
+
+        function updateSusutField(idx, field, value){
+            const currentType = localStorage.getItem("currentAssetType");
+            susutData = getSusutData(currentType);
+            const text = languages[currentLanguage];
+
+            // Pastikan nilai input adalah nombor jika ia field kewangan
+            let finalValue = value;
+            if (["tambahanKos", "lupusKos", "kadarSusut"].includes(field)) {
+                finalValue = Number(value) || 0; // Jika tidak boleh tukar kepada nombor, set kepada 0
+            }
+
+            // Kemaskini data dalam array
+            susutData[idx][field] = finalValue;
+
+            // Simpan dan render semula
+            saveSusutData(currentType, susutData);
+            renderSusutTable();
+        }
+
+        function renderSusutTable(){
+            const currentType = localStorage.getItem("currentAssetType");
+            if (!currentType) return;
+
+            susutData = getSusutData(currentType);
+            const tbody = document.getElementById("susutTableBody");
+            tbody.innerHTML = "";
+            const text = languages[currentLanguage];
+            const editText = text.editBtn;
+            const deleteText = text.deleteBtn;
+
+            // Jika kosong, masukkan baris awal jika tiada data
+            if (susutData.length === 0) {
+                 tbody.innerHTML = `<tr><td colspan="14" style="text-align: center;">${text.alertNoAssetData}</td></tr>`;
+                return;
+            }
+
+            // Pembolehubah untuk pengiraan berulang
+            let previousEndBalanceCost = 0;
+            let previousEndBalanceDep = 0;
+
+            susutData.forEach((item, idx) => {
+                const bakiAwalKos = previousEndBalanceCost;
+                const bakiAwalSusut = previousEndBalanceDep;
+
+                // Kos (Kos Awal + Tambahan - Lupus)
+                const tambahanKos = Number(item.tambahanKos) || 0;
+                const lupusKos = Number(item.lupusKos) || 0;
+                const bakiAkhirKos = bakiAwalKos + tambahanKos - lupusKos;
+
+                // Susut Nilai (Kadar Susut diambil dari input)
+                const kadarSusut = Number(item.kadarSusut) / 100 || 0;
+
+                // Pengiraan Susut Nilai Tambahan (Tambahan Kos * Kadar Susut)
+                const tambahanSusut = (tambahanKos * kadarSusut);
+
+                // Pengiraan Susut Nilai Lupus (Lupus Kos * Kadar Susut)
+                // Di sini kita anggap aset yang dilupuskan pada tahun tersebut juga telah disusutnilaikan pada kadar tahunan penuh.
+                const lupusSusut = (lupusKos * kadarSusut);
+
+
+                // Baki Akhir Susut Nilai (Baki Awal SN + Tambahan SN - Lupus SN)
+                const bakiAkhirSusut = bakiAwalSusut + tambahanSusut - lupusSusut;
+
+                // Nilai Buku Bersih (Baki Akhir Kos - Baki Akhir Susut Nilai)
+                const nilaiBuku = bakiAkhirKos - bakiAkhirSusut;
+
+                // Kemaskini pembolehubah untuk kegunaan baris seterusnya
+                previousEndBalanceCost = bakiAkhirKos;
+                previousEndBalanceDep = bakiAkhirSusut;
+
+                // Pastikan nilai tarikh dimasukkan untuk input
+                const tarikhValue = item.tarikh || '';
+
+                tbody.innerHTML += `<tr>
+                    <td>${idx+1}</td>
+                    <td><input type="date" value="${tarikhValue}" onchange="updateSusutField(${idx},'tarikh',this.value)"></td>
+                    <td><input type="text" value="${item.aset}" onchange="updateSusutField(${idx},'aset',this.value)"></td>
+                    <td>${bakiAwalKos.toFixed(2)}</td>
+                    <td><input type="number" value="${tambahanKos}" onchange="updateSusutField(${idx},'tambahanKos',this.value)" min="0" step="0.01"></td>
+                    <td><input type="number" value="${lupusKos}" onchange="updateSusutField(${idx},'lupusKos',this.value)" min="0" step="0.01"></td>
+                    <td>${bakiAkhirKos.toFixed(2)}</td>
+                    <td><input type="number" value="${kadarSusut * 100}" onchange="updateSusutField(${idx},'kadarSusut',this.value)" min="0" max="100" step="0.1"></td>
+                    <td>${bakiAwalSusut.toFixed(2)}</td>
+                    <td>${tambahanSusut.toFixed(2)}</td>
+                    <td>${lupusSusut.toFixed(2)}</td>
+                    <td>${bakiAkhirSusut.toFixed(2)}</td>
+                    <td>${nilaiBuku.toFixed(2)}</td>
+                    <td class="action-cell">
+                        <button class="btn-edit btn-susut-edit" onclick="renderSusutTable()">${editText}</button>
+                        <button class="btn-delete btn-susut-delete" onclick="deleteSusutRow(${idx})">${deleteText}</button>
+                    </td>
+                </tr>`;
+            });
+
+            // Simpan data terakhir selepas pengiraan
+            saveSusutData(currentType, susutData);
+        }
+
+        // --- FUNGSI SOFTCOPY (Halaman C) ---
+        let softcopyList = JSON.parse(localStorage.getItem("softcopyList")) || [];
+
+        function saveSoftcopyList() {
+            localStorage.setItem("softcopyList", JSON.stringify(softcopyList));
+        }
+
+        // Preview Image on selection
+        document.getElementById('softcopyFile').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            const preview = document.getElementById('imagePreview');
+            const text = languages[currentLanguage];
+
+            if (file) {
+                if (file.size > 500 * 1024) { // Check size > 500KB
+                    alert(text.alertSoftcopyFileTooLarge);
+                    event.target.value = ''; // Clear the file input
+                    preview.style.display = 'none';
+                    preview.src = '';
+                    return;
+                }
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            } else {
+                preview.style.display = 'none';
+                preview.src = '';
+            }
+        });
+
+        // Event listener untuk borang softcopy
+        document.getElementById('softcopyForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const text = languages[currentLanguage];
+            const type = document.getElementById('softcopyAssetType').value;
+            const name = document.getElementById('softcopyDocName').value.trim();
+            const url = document.getElementById('softcopyURL').value.trim();
+            const fileInput = document.getElementById('softcopyFile');
+            const preview = document.getElementById('imagePreview');
+
+            // Tentukan Base64 yang efektif
+            let effectiveBase64 = null;
+            if (fileInput.files.length > 0) {
+                // Jika ada fail baru, ambil dari preview.src
+                effectiveBase64 = (preview.src && preview.src.startsWith('data:image')) ? preview.src : null;
+            } else {
+                 // Jika tiada fail baru, tetapi dalam mod edit, gunakan base64 lama
+                effectiveBase64 = softcopyEditIndex !== -1 ? softcopyList[softcopyEditIndex].base64Image : null;
+            }
+
+            // Validasi: Perlu ada URL atau Base64/Imej
+            if (!url && !effectiveBase64) {
+                alert(text.alertSoftcopyNoLinkOrFile);
+                return;
+            }
+
+            const doc = {
+                assetType: type,
+                docName: name,
+                url: url,
+                base64Image: effectiveBase64 // Gunakan effectiveBase64
+            };
+
+            if (softcopyEditIndex === -1) {
+                // Mod Tambah Baru
+                softcopyList.push(doc);
+                alert(text.alertSoftcopyAdded);
+            } else {
+                // Mod Kemaskini
+                softcopyList[softcopyEditIndex] = doc;
+                softcopyEditIndex = -1; // Reset mod edit
+                alert(text.alertSoftcopyUpdated);
+            }
+
+            saveSoftcopyList();
+
+            // Reset form, render semula, dan tukar butang ke Tambah
+            this.reset();
+            fillSoftcopyAssetTypeDropdown();
+            renderSoftcopyTable();
+            softcopySubmitButton.textContent = text.submitSoftcopyButton;
+            preview.src = '';
+            preview.style.display = 'none';
+        });
+
+        function editSoftcopy(i) {
+            softcopyEditIndex = i;
+            const item = softcopyList[i];
+            const text = languages[currentLanguage];
+
+            document.getElementById('softcopyAssetType').value = item.assetType;
+            document.getElementById('softcopyDocName').value = item.docName;
+            document.getElementById('softcopyURL').value = item.url || '';
+
+            // Tunjukkan imej preview lama jika ada
+            const preview = document.getElementById('imagePreview');
+            if (item.base64Image) {
+                preview.src = item.base64Image;
+                preview.style.display = 'block';
+            } else {
+                preview.src = '';
+                preview.style.display = 'none';
+            }
+
+            // Kosongkan input file
+            document.getElementById('softcopyFile').value = '';
+
+            // Tukar teks butang ke "Kemaskini Dokumen"
+            softcopySubmitButton.textContent = text.updateSoftcopyButton;
+            // Skrol ke atas ke borang
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Fungsi untuk padam dokumen softcopy
+        function deleteSoftcopy(i) {
+            const text = languages[currentLanguage];
+
+            if(confirm(text.alertSoftcopyDelete)) {
+                softcopyList.splice(i, 1);
+                saveSoftcopyList();
+                renderSoftcopyTable();
+            }
+        }
+
+        // Fungsi untuk papar imej penuh (Modal/Alert)
+        function viewFullImage(base64Image) {
+            // Cara ringkas untuk memaparkan imej penuh (menggunakan tetingkap baru)
+            const newWindow = window.open();
+            newWindow.document.write(`<img src="${base64Image}" style="max-width: 100%; height: auto;">`);
+        }
+
+        function renderSoftcopyTable() {
+            softcopyList = JSON.parse(localStorage.getItem("softcopyList")) || []; // Muat data terkini
+            const tbody = document.getElementById("softcopyTable");
+            tbody.innerHTML = "";
+            const text = languages[currentLanguage];
+            const editText = text.editBtn;
+            const deleteText = text.deleteBtn;
+
+            if (softcopyList.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="5" style="text-align: center;">${text.noSoftcopyRecord}</td></tr>`;
+                return;
+            }
+
+            softcopyList.forEach((item, i) => {
+                const isUrl = item.url && (item.url.startsWith('http') || item.url.startsWith('file'));
+                const linkHtml = isUrl ? `<a href="${item.url}" target="_blank" style="color: var(--secondary-color); text-decoration: none; font-size: 12px;">${text.externalLink}</a>` : (item.url || '-');
+
+                // Paparkan gambar jika data Base64 wujud
+                // Fungsi untuk buka imej penuh sudah ada
+                const imageHtml = item.base64Image ? `<img src="${item.base64Image}" style="max-width: 50px; max-height: 50px; cursor: pointer; border: 1px solid #ccc; border-radius: 3px;" onclick="viewFullImage('${item.base64Image}');">` : '-';
+
+                tbody.innerHTML += `<tr>
+                    <td>${item.assetType}</td>
+                    <td>${item.docName}</td>
+                    <td>${imageHtml}</td>
+                    <td>${linkHtml}</td>
+                    <td>
+                        <button class="btn-edit" onclick="editSoftcopy(${i})">${editText}</button>
+                        <button class="btn-delete" onclick="deleteSoftcopy(${i})">${deleteText}</button>
+                    </td>
+                </tr>`;
+            });
+        }
+
+        // --- INITALIZATION ---
+        // Panggil apabila halaman dimuatkan
+        document.addEventListener('DOMContentLoaded', (event) => {
+            // Tetapkan bahasa awal
+            changeLanguage(currentLanguage);
+
+            // Periksa jika sudah login (berada di homePage) atau masih di loginPage
+            // Untuk kali pertama, buka loginPage. Untuk kali seterusnya, boleh cuba buka homePage jika password sudah disimpan.
+            if(localStorage.getItem("password")) {
+                openPage('loginPage'); // Pastikan pengguna sentiasa perlu login
+            } else {
+                openPage('loginPage');
+            }
+        });
+    </script>
+</body>
+</html>
